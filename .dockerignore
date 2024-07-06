@@ -1,0 +1,8 @@
+.idea
+.vscode
+__tests__
+/node_modules
+.prettierrc
+deploy.sh
+Dockerfile
+docker-compose.yml

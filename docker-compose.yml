@@ -1,0 +1,52 @@
+version: "3.7"
+
+services:
+    server:
+        build:
+            context: ./
+            target: development-build-stage
+        ports:
+            - "3000:3000"
+        volumes:
+            - ./:/app
+            - /app/node_modules
+        restart: "unless-stopped"
+        networks:
+            - backend
+        depends_on:
+            - postgres
+            - redis
+
+    postgres:
+        image: "postgres:16"
+        environment:
+            PGHOST: "${TYPEORM_HOST}"
+            PGDATABASE: "${TYPEORM_DATABASE}"
+            PGPORT: "${TYPEORM_PORT}"
+            PGUSER: "${TYPEORM_USERNAME}"
+            PGPASSWORD: "${TYPEORM_PASSWORD}"
+        ports:
+            - "5432:5432"
+        volumes:
+            - "./postgres_data:/var/lib/postgresql/data"
+        networks:
+            - backend
+
+    redis:
+        image: "redis:alpine"
+        ports:
+            - "6379:6379"
+        volumes:
+            - "redis_data:/data"
+        networks:
+            - backend
+
+networks:
+    backend:
+        driver: bridge
+
+volumes:
+    postgres_data:
+        driver: local
+    redis_data:
+        driver: local

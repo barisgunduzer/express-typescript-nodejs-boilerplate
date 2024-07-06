@@ -1,0 +1,11 @@
+node_modules
+dist
+coverage
+.env
+.env.development
+.env.staging
+.env.production
+temp
+src/schema.gql
+.vscode
+.idea
