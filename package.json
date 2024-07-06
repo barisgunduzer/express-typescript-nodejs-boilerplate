@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Project is a faster way to building a Node.js RESTful API in TypeScript.",
   "dependencies": {
-    "axios": "^1.6.8",
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
     "bullmq": "^5.7.4",
