@@ -73,7 +73,7 @@
     "ts-node-dev": "^2.0.0",
     "tsc-watch": "^6.2.0",
     "typescript": "^5.4.5",
-    "vitest": "^1.5.2"
+    "vitest": "^3.0.0"
   },
   "config": {
     "name": "default"
